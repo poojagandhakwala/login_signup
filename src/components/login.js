@@ -35,6 +35,17 @@ const Login = () => {
                 id="exampleInputPassword1"
               />
             </div>
+            <div className="mb-3 form-check">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="exampleCheck1"
+              />
+              <label className="form-check-label" htmlFor="exampleCheck1">
+                Remember me
+              </label>
+            </div>
+
             <button type="submit" className="mt-3 btn btn-primary w-100">
               Submit
             </button>
