@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import image from "../images/image.avif";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = () => {
+    if (!email || !password) {
+      alert("Please fill all the values!");
+    }
+    
+  };
+
   return (
     <div
       className="login my-5 "
@@ -23,6 +33,10 @@ const Login = () => {
               className="form-control "
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
 
             <div className="mb-3 mt-2">
@@ -33,6 +47,10 @@ const Login = () => {
                 type="password"
                 className="form-control"
                 id="exampleInputPassword1"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
               />
             </div>
             <div className="mb-3 form-check">
@@ -46,7 +64,11 @@ const Login = () => {
               </label>
             </div>
 
-            <button type="submit" className="mt-3 btn btn-primary w-100">
+            <button
+              type="submit"
+              className="mt-3 btn btn-primary w-100"
+              onClick={() => handleSubmit()}
+            >
               Submit
             </button>
             <h6 className="text-end mt-4">

@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import image from "../images/image.avif";
 
 const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = () => {
+    if (!email || !password || !contact) {
+      alert("Please fill all the values!");
+    }
+  };
+
   return (
     <div
       className="signup"
@@ -23,11 +33,13 @@ const Signup = () => {
               className="form-control "
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
-            <div id="emailHelp" className="form-text">
-              We'll never share your email with anyone else.
-            </div>
-            <div className="mb-3 mt-3">
+
+            <div className="mb-3 mt-2">
               <label htmlFor="exampleInputNumber1" className="form-label">
                 Contact Number
               </label>
@@ -35,6 +47,10 @@ const Signup = () => {
                 type="text"
                 className="form-control"
                 id="exampleInputNumber1"
+                value={contact}
+                onChange={(e) => {
+                  setContact(e.target.value);
+                }}
               />
             </div>
 
@@ -46,12 +62,23 @@ const Signup = () => {
                 type="password"
                 className="form-control"
                 id="exampleInputPassword1"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
               />
             </div>
 
-            <button type="submit" className="mt-3 btn btn-primary w-100">
+            <button
+              type="submit"
+              className="mt-3 btn btn-primary w-100"
+              onClick={() => handleSubmit()}
+            >
               Submit
             </button>
+            <div id="emailHelp" className="form-text">
+              We'll never share your details with anyone else.
+            </div>
             <h6 className="text-end mt-4">
               <a href="/login">Log In</a>
             </h6>
