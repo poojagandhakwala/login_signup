@@ -27,7 +27,7 @@ const Signup = () => {
             <div id="emailHelp" className="form-text">
               We'll never share your email with anyone else.
             </div>
-            <div className="mb-3 mt-2">
+            <div className="mb-3 mt-3">
               <label htmlFor="exampleInputNumber1" className="form-label">
                 Contact Number
               </label>
